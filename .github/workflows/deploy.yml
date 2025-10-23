@@ -1,0 +1,19 @@
+name: Deploy static site with Stadia key
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Inject Stadia key
+        env:
+          STADIA_KEY: ${{ secrets.STADIA_KEY }}
+        run: |
+          sed -i "s|__STADIA_KEY__|${STADIA_KEY}|g" js/index.js

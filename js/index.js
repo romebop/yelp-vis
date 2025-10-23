@@ -1,6 +1,6 @@
 var map = new maplibregl.Map({
   container: 'map',
-  style: 'https://tiles.stadiamaps.com/styles/alidade_smooth.json',
+  style: 'https://tiles.stadiamaps.com/styles/alidade_smooth.json?key=__STADIA_KEY__',
   center: [-115.1439, 36.1615],
   zoom: 13.5,
   minZoom: 10,
