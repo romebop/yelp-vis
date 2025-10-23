@@ -1,25 +1,23 @@
-mapboxgl.accessToken = 'pk.eyJ1Ijoicm9tZWJvcCIsImEiOiJjaWh2YTlpbmgwMjBtdGdtMWZ3bWQxbmx4In0.nrKajZ5GWytwUakC3YLvqQ';
-
-var map = new mapboxgl.Map({
-  container: 'map', // container id
-  style: 'mapbox://styles/mapbox/basic-v8',
+var map = new maplibregl.Map({
+  container: 'map',
+  style: 'https://tiles.stadiamaps.com/styles/alidade_smooth.json',
   center: [-115.1439, 36.1615],
   zoom: 13.5,
   minZoom: 10,
   maxZoom: 16,
   maxBounds: [
     [-115.85180521108714, 35.811059547051386], // SW
-    [-114.45832924688042, 36.44166719811932] // NE
+    [-114.45832924688042, 36.44166719811932],  // NE
   ],
 });
 
-map.addControl(new mapboxgl.NavigationControl());
+map.addControl(new maplibregl.NavigationControl());
 
 var container = map.getCanvasContainer();
 var svg = d3.select(container).append('svg');
 
 function project(d) {
-  const ll = new mapboxgl.LngLat(+d.longitude, +d.latitude);
+  const ll = new maplibregl.LngLat(+d.longitude, +d.latitude);
   return map.project(ll);
 }
 
