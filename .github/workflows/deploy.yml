@@ -16,4 +16,4 @@ jobs:
         env:
           STADIA_KEY: ${{ secrets.STADIA_KEY }}
         run: |
-          sed -i "s|__STADIA_KEY__|${STADIA_KEY}|g" js/index.js
+          find . -type f \( -name "*.html" -o -name "*.js" \) -exec sed -i "s|__STADIA_KEY__|${STADIA_KEY}|g" {} +
